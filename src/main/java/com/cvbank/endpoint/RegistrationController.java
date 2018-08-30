@@ -2,6 +2,7 @@ package com.cvbank.endpoint;
 
 
 import com.cvbank.model.ApplicationUser;
+import com.cvbank.model.Response;
 import com.cvbank.security.SecurityUtility;
 import com.cvbank.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,15 +34,19 @@ public class RegistrationController {
 
         user.setPassword(SecurityUtility.passwordEncoder().encode(user.getPassword()));
         customUserDetailsService.createUser(user);
+        Response resp = new Response();
+        resp.setResponseSuccessful(true);
 
-        return new ResponseEntity<>("New User with username " + user.getUsername() + " has been created. Hi, Donald!", HttpStatus.CREATED);
+        return new ResponseEntity<>(resp, HttpStatus.CREATED);
     }
 
     @GetMapping(LOGOUT_URL)
     public ResponseEntity<?> logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
 
         new SecurityContextLogoutHandler().logout(request, response, authentication);
+        Response resp = new Response();
+        resp.setResponseSuccessful(true);
 
-        return new ResponseEntity("Logout Successfully!", HttpStatus.OK);
+        return new ResponseEntity(resp, HttpStatus.OK);
     }
 }
