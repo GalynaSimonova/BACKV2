@@ -1,6 +1,6 @@
 ## *All test performed in Postman*
 
-#### User Sign Up
+### User Sign Up
 Method **POST**
 
 
@@ -11,7 +11,7 @@ Method **POST**
 ```
 ***
 
-#### Login
+### Login
 Method **POST**
  
 <http://localhost:8080/api/login>
@@ -24,7 +24,7 @@ Method **POST**
 
 ***
 
-#### Logout
+### Logout
 
 Method **GET**
 
@@ -33,23 +33,23 @@ Method **GET**
 
 ***
 
-#### CRUD on Profiles
+### CRUD on Profiles
 
-#### Get All Profiles
+### Get All Profiles
 Method **GET**
 
 <http://localhost:8080/api/profiles>
 
 ***
 
-#### GET Profile by Id
+### GET Profile by Id
 Method **GET**
 
 <http://localhost:8080/api/profiles/{id}>
 
 ***
 
-#### Create New Profile
+### Create New Profile
 Method  **POST**
  
 <http://localhost:8080/api/profiles>
@@ -80,7 +80,7 @@ Method  **POST**
  
 ***
 
-#### Update existing Profile
+### Update existing Profile
 Method **PUT**
 
 <http://localhost:8080/api/profiles/{id}>
@@ -113,14 +113,14 @@ Method **PUT**
     
 ***    
     
-#### Delete existing Profile by Id
+### Delete existing Profile by Id
 Method **Delete**
 
 <http://localhost:8080/api/profiles/{id}>
 
 ***
 
-#### Delete All Profiles
+### Delete All Profiles
 Method **Delete**
 
 <http://localhost:8080/api/profiles/>
