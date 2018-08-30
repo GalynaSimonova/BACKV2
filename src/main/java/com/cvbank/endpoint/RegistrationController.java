@@ -34,7 +34,7 @@ public class RegistrationController {
         user.setPassword(SecurityUtility.passwordEncoder().encode(user.getPassword()));
         customUserDetailsService.createUser(user);
 
-        return new ResponseEntity<>("New User with username " + user.getUsername() + " has been created", HttpStatus.CREATED);
+        return new ResponseEntity<>("New User with username " + user.getUsername() + " has been created. Hi, Donald!", HttpStatus.CREATED);
     }
 
     @GetMapping(LOGOUT_URL)
