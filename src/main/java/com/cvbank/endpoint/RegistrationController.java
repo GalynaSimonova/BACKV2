@@ -5,6 +5,7 @@ import com.cvbank.model.ApplicationUser;
 import com.cvbank.model.Response;
 import com.cvbank.security.SecurityUtility;
 import com.cvbank.service.CustomUserDetailsService;
+import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +35,9 @@ public class RegistrationController {
 
         user.setPassword(SecurityUtility.passwordEncoder().encode(user.getPassword()));
         customUserDetailsService.createUser(user);
-        Response resp = new Response();
-        resp.setResponseSuccessful(true);
-
-        return new ResponseEntity<>(resp, HttpStatus.CREATED);
+        //Response resp = new Response();
+        //resp.fillResponse("success", null, null, null);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     @GetMapping(LOGOUT_URL)
@@ -45,8 +45,7 @@ public class RegistrationController {
 
         new SecurityContextLogoutHandler().logout(request, response, authentication);
         Response resp = new Response();
-        resp.setResponseSuccessful(true);
-
+        resp.fillResponse("success",null, null, null);
         return new ResponseEntity(resp, HttpStatus.OK);
     }
 }
