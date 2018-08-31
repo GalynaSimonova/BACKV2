@@ -1,5 +1,6 @@
 package com.cvbank.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,6 +14,7 @@ public class ApplicationUser implements UserDetails {
     @Column(name = "Id", nullable = false)
     private Long id;
     private String username;
+    @JsonView(Views.Internal.class)
     private String password;
 
 
