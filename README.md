@@ -16,6 +16,10 @@ Method **POST**
  
 <http://localhost:8080/api/login>
 
+**Header**
+
+Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkb25hbGQiLCJleHAiOjE1MzU2NjEyNjR9.eESH592ehteRXdUmsF79SwV0aApwp9kt7xKNNdM6mSE
+
 **Body**  
 
 ```json
