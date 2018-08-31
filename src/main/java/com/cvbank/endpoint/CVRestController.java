@@ -2,7 +2,9 @@ package com.cvbank.endpoint;
 
 import com.cvbank.error.ResourceNotFoundException;
 import com.cvbank.model.CV;
+import com.cvbank.model.CVactivity;
 import com.cvbank.repository.CVRepository;
+import com.cvbank.repository.CVactivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,9 @@ public class CVRestController {
 
     @Autowired
     private CVRepository CVRepository;
+
+    @Autowired
+    private CVactivityRepository cvActivityRepository;
 
     @GetMapping("/cv")
     public List<CV> getAllCV() {
@@ -41,10 +46,16 @@ public class CVRestController {
     @PostMapping("/cv")
     @Transactional
     public ResponseEntity<?> createNewCV(@RequestBody CV cv) {
-
+        //сохранять и cv и cvActivity
         CVRepository.save(cv);
+        List<CVactivity> cvActivity = cv.getCvActivity();
+        for(CVactivity cvAct: cvActivity) {
+            cvAct.setCv(cv);
+            cvActivityRepository.save(cvAct);
+        }
         return new ResponseEntity<>("New " + CV.class.getSimpleName() + " " + cv.getId() + " has been created", HttpStatus.CREATED);
     }
+
 
     @PutMapping("/cv/{id}")
     @Transactional
