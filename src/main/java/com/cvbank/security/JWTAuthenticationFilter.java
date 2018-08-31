@@ -54,15 +54,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         class TokenBuilder {
 
             String token;
-
-            private TokenBuilder() {
-
-            }
-
             private TokenBuilder(String token) {
                 this.token = token;
             }
-
 
             public String getToken() {
                 return token;
