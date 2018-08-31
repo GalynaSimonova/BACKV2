@@ -11,7 +11,7 @@ public class CVactivity {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "cvactivity_id")
+	@Column(name = "id")
 	private Long id;
 
 	//private Long cv_id;//1 CV many CV activity
