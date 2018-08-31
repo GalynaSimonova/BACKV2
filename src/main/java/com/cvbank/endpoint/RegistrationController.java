@@ -35,9 +35,9 @@ public class RegistrationController {
 
         user.setPassword(SecurityUtility.passwordEncoder().encode(user.getPassword()));
         customUserDetailsService.createUser(user);
-        //Response resp = new Response();
-        //resp.fillResponse("success", null, null, null);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        Response resp = new Response();
+        resp.fillResponse("success", null, null, null);
+        return new ResponseEntity<>(resp, HttpStatus.CREATED);
     }
 
     @GetMapping(LOGOUT_URL)

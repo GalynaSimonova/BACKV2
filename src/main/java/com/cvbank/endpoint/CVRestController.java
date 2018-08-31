@@ -75,15 +75,12 @@ public class CVRestController {
         }
 
         throw new ResourceNotFoundException(CV.class.getSimpleName() + " id not found - " + id);
-
-
     }
 
 
     @DeleteMapping("/cv")
     @Transactional
     public ResponseEntity<?> deleteAllCV() {
-
         CVRepository.deleteAll();
         return new ResponseEntity<>("All CV have been deleted ", HttpStatus.OK);
     }
